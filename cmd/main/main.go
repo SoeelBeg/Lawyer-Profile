@@ -1,6 +1,7 @@
-package handler
+package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/soeel/lawyer-profile/pkg/config"
@@ -8,16 +9,17 @@ import (
 	"github.com/soeel/lawyer-profile/pkg/routes"
 )
 
-// Handler function for Vercel
-func Handler(w http.ResponseWriter, r *http.Request) {
-	router := routes.RegisterRoutes()
-	router.ServeHTTP(w, r)
-}
-
-func init() {
+func main() {
 	// Connect to the database
 	config.ConnectDatabase()
 
 	// Migrate the lawyer model
 	models.MigrateLawyer(config.GetDB())
+
+	// Register routes
+	router := routes.RegisterRoutes()
+
+	// Start the server
+	log.Println("Server is running on port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
