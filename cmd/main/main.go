@@ -1,4 +1,4 @@
-package main
+package handler
 
 import (
 	"log"
@@ -9,7 +9,7 @@ import (
 	"github.com/soeel/lawyer-profile/pkg/routes"
 )
 
-func main() {
+func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	// Connect to the database
 	config.ConnectDatabase()
 
