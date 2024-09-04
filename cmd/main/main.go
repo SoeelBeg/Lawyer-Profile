@@ -19,7 +19,11 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	// Register routes
 	router := routes.RegisterRoutes()
 
-	// Start the server
-	log.Println("Server is running on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	// Serve HTTP requests
+	router.ServeHTTP(w, r)
+}
+
+func main() {
+	http.HandleFunc("/", HandleRequest)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
