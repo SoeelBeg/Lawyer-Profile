@@ -5,11 +5,5 @@
       "src": "cmd/main/main.go",
       "use": "@vercel/go"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "cmd/main/main.go"
-    }
   ]
 }
