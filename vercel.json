@@ -5,5 +5,15 @@
       "src": "cmd/main/main.go",
       "use": "@vercel/go"
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "cmd/main/main.go"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
   ]
 }
