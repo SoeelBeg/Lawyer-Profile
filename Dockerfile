@@ -1,29 +1,32 @@
-# Use the official Golang image to create a build artifact
-FROM golang:1.20 AS builder
+# Use the official Golang image as a build stage
+FROM golang:1.23 AS build
 
-# Set the Current Working Directory inside the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the go.mod and go.sum files
+# Copy the Go modules manifests
 COPY go.mod go.sum ./
 
-# Download the dependencies
+# Download Go modules
 RUN go mod download
 
-# Copy the source code into the container
+# Copy the source code
 COPY . .
 
-# Build the Go app
+# Build the Go binary
 RUN go build -o main cmd/main/main.go
 
-# Start a new stage from scratch
-FROM scratch
+# Set the necessary permissions
+RUN chmod +x ./main
 
-# Copy the Pre-built binary file from the previous stage
-COPY --from=builder /app/main /main
+# Use a minimal base image for the final image
+FROM debian:bullseye-slim
 
-# Expose port 8080 to the outside world
+# Copy the compiled binary from the build stage
+COPY --from=build /app/main /main
+
+# Expose the port the app runs on
 EXPOSE 8080
 
-# Command to run the executable
-CMD ["/main"]
+# Set the entrypoint to the binary
+ENTRYPOINT ["/main"]

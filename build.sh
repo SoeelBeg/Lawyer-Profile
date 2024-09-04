@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-# Build the Go application
+# Build the Go binary
 go build -o main cmd/main/main.go
 
-# Make the binary executable
+# Set execute permissions
 chmod +x main

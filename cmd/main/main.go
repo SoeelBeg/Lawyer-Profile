@@ -1,4 +1,4 @@
-package handler
+package main
 
 import (
 	"log"
@@ -9,7 +9,7 @@ import (
 	"github.com/soeel/lawyer-profile/pkg/routes"
 )
 
-func HandleRequest(w http.ResponseWriter, r *http.Request) {
+func main() {
 	// Connect to the database
 	config.ConnectDatabase()
 
@@ -19,11 +19,7 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	// Register routes
 	router := routes.RegisterRoutes()
 
-	// Serve HTTP requests
-	router.ServeHTTP(w, r)
-}
-
-func main() {
-	http.HandleFunc("/", HandleRequest)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	// Start the server
+	log.Println("Server is running on port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
