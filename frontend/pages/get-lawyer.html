@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Lawyer by ID</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url("../images/law9.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-top: 80px; /* Adjust for fixed header */
+            margin-bottom: 60px; /* Adjust for fixed footer */
+            color: black;
+            text-align: center;
+        }
+
+        input[type="number"],
+        button {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            border: 2px solid #ccc;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #get-lawyer-result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: justify;
+            background-color: rgba(250, 246, 246, 0.288);
+            padding: 10px 10px 10px 10px;
+            color: #333;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-top: 50px;
+                padding-bottom: 50px;
+                background-size: contain;
+            }
+
+            input[type="number"],
+            button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                margin-top: 70px;
+                margin-bottom: 50px;
+                background-size: contain;
+                background-position: center;
+            }
+
+            input[type="number"],
+            button {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            nav a {
+                padding: 10px 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Get Lawyer by ID</h1>
+        <nav>
+            <a href="/index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <input type="number" id="get-lawyer-id" placeholder="Lawyer ID">
+        <button id="get-lawyer-btn">Get Lawyer</button>
+        <div id="get-lawyer-result"></div>
+        <script src="/js/main.js"></script>
+    </main>
+    <footer>
+        <p>&copy; Soeel Beg 2024 Lawyer Profile Management</p>
+    </footer>
+</body>
+
+</html>

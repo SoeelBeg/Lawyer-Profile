@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Lawyer</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .mainadd {
+            padding: 50px;
+            background-image: url("../images/law4.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: auto;
+            margin-top: 90px;
+        }
+
+        .content {
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px 20px 20px;
+
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content p {
+                font-size: 11px;
+                text-align: justify;
+                margin: 10px 0 10px 0;
+            }
+
+            .logo {
+                max-width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Add New Lawyer</h1>
+            <a href="/index.html">Home</a>
+        </nav>
+    </header>
+    <main class="mainadd">
+        <form id="create-lawyer-form">
+            <input type="text" id="create-name" placeholder="Name" required>
+            <input type="text" id="create-specialty" placeholder="Specialty" required>
+            <input type="email" id="create-email" placeholder="Email" required>
+            <input type="text" id="create-mobile" placeholder="Mobile Number" required>
+            <input type="text" id="create-address" placeholder="Address" required>
+            <button type="submit">Create Lawyer</button>
+        </form>
+        <script src="/js/main.js"></script>
+    </main>
+
+    <section class="content">
+        <img src="../images/logo.avif" alt="Lawyer Profile Logo" class="logo">
+        <p>
+            Welcome to the Lawyer Profile Management System. Our platform makes it easy for you to manage
+            lawyer profiles, including adding new profiles, updating existing information, and keeping track
+            of all your data. Our goal is to help you streamline your legal management process.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; Soeel Beg 2024 Lawyer Profile Management</p>
+    </footer>
+</body>
+
+</html>

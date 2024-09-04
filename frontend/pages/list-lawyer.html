@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyer List</title>
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <style>
+        /* Custom CSS for list-lawyer.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ddd;
+            text-align: justify;
+            align-items: center;
+            text-transform: capitalize;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+            color: #ddd;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ddd;
+            font-size: 1.1em;
+            margin: 0 15px;
+            transition: 0.5s;
+        }
+
+
+
+        #lawyer-list {
+            max-width: 1200px;
+            margin: 150px auto 80px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .lawyer-item {
+            /* border-bottom: 1px solid #ddd; */
+            padding: 10px 0;
+        }
+
+        .lawyer-item:last-child {
+            border-bottom: none;
+        }
+
+        .lawyer-item h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #2c3e50;
+        }
+
+        .lawyer-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #lawyer-list {
+                padding: 10px;
+                margin: 145px 0 80px 0;
+            }
+
+            .lawyer-item h2 {
+                font-size: 1.2em;
+            }
+
+            .lawyer-item p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lawyer-item {
+                padding: 5px 0;
+            }
+
+            .lawyer-item h2 {
+                font-size: 1em;
+            }
+
+            .lawyer-item p {
+                font-size: 0.8em;
+            }
+
+            footer {
+                background: #333;
+                color: #fff;
+                text-align: center;
+                padding: 10px 0;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>Lawyer List</h1>
+        <a href="/index.html">Home</a>
+    </nav>
+    <div id="lawyer-list"></div> <!-- Container for lawyer list -->
+
+    <footer>
+        <p>&copy; 2024 Lawyer Profile Management. Develop By Soeel Beg</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
