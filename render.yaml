@@ -1,0 +1,9 @@
+version: 1
+services:
+  - type: web
+    name: lawyer-profile
+    buildCommand: ./build.sh
+    startCommand: ./main
+    env: go
+    plan: free
+    port: 8080
