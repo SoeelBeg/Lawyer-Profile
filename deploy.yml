@@ -1,0 +1,32 @@
+# Deploy Lawyer Profile Workflow
+
+# Trigger the workflow on push events to the main branch
+on:
+  push:
+    branches:
+      - main  # Run this workflow on pushes to the main branch
+
+# Define the deploy job
+jobs:
+  deploy:
+    # Run the job on the latest Ubuntu environment
+    runs-on: ubuntu-latest
+
+    # Define the steps for the deploy job
+    steps:
+      # Checkout the code in the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Deploy to the server
+      - name: Deploy to Server
+        run: |
+          # SSH into the server
+          ssh user@yourserver.com "
+          # Change into the lawyer profile directory
+          cd /path/to/your/lawyer-profile &&
+          # Pull the latest code from the main branch
+          git pull origin main &&
+          # Restart the server
+          ./restart_server.sh
+          "
