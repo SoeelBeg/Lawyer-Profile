@@ -1,32 +1,23 @@
-# Use the official Golang image as a build stage
-FROM golang:1.23 AS build
+# Use the official Go image as the base image
+FROM golang:1.20
 
-# Set the working directory inside the container
+# Set the Current Working Directory inside the container
 WORKDIR /app
 
-# Copy the Go modules manifests
+# Copy go.mod and go.sum files
 COPY go.mod go.sum ./
 
-# Download Go modules
+# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
 RUN go mod download
 
-# Copy the source code
+# Copy the source code into the container
 COPY . .
 
-# Build the Go binary
-RUN go build -o main cmd/main/main.go
+# Build the Go application
+RUN go build -o main ./cmd/main
 
-# Set the necessary permissions
-RUN chmod +x ./main
-
-# Use a minimal base image for the final image
-FROM debian:bullseye-slim
-
-# Copy the compiled binary from the build stage
-COPY --from=build /app/main /main
-
-# Expose the port the app runs on
+# Expose port 8080 to the outside world
 EXPOSE 8080
 
-# Set the entrypoint to the binary
-ENTRYPOINT ["/main"]
+# Command to run the executable
+CMD ["./main"]
