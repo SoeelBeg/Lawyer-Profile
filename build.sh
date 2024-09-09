@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-# Build the Go binary
-go build -o main cmd/main/main.go
+# Install dependencies
+go mod tidy
 
-# Set execute permissions
-chmod +x main
+# Build the project
+go build -o main ./cmd/main

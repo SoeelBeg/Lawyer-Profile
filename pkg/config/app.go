@@ -2,6 +2,7 @@ package config
 
 import (
 	"log"
+	"os"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -10,7 +11,11 @@ import (
 var db *gorm.DB
 
 func ConnectDatabase() {
-	dsn := "admin:soeel123@tcp(127.0.0.1:3306)/soeeldb?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := os.Getenv("DATABASE_URL")
+	if dsn == "" {
+		log.Fatal("DATABASE_URL is not set in the environment")
+	}
+
 	var err error
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {

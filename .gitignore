@@ -1,2 +1,9 @@
-# .gitignore file content
+# Binaries
+/main
+
+# Environment files
 .env
+
+# Go specific
+/vendor/
+/*.log
